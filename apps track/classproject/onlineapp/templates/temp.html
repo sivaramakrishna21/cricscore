@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <head><center>Collegenames</center></head>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+       th{
+       background-color:skyblue;
+       }
+       table,td{1px black}
+    </style>
+
+</head>
+<body>
+<a href="{{query.acronym}}/add" class="button is-primary">Add Student</a>
+<center>
+<table border="1">
+    <tr>
+        <h1><th>student name</th></h1>
+        <h1><th>email</th></h1>
+        <h1><th width="40">edit</th></h1>
+        <h1><th width="60">delete</th></h1></tr>
+    {%for i in students  %}
+
+    <tr><td>{{i.name}}</td><td>{{i.email}}</td><td>{{query.acronym}}</td>
+    <td width="50"><a href="/{{i.id}}/" >edit</a></td>
+        <td width="80"><a href="delete/{{i.id}}" >delete</a></td></tr>
+    {% endfor %}
+</table>
+</center>
+</body>
+</html>
+
+
+

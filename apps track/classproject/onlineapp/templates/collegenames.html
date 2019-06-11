@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <head><center>Collegenames</center></head>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+       th{
+       background-color:skyblue;
+       }
+       table,td{1px black}
+    </style>
+
+</head>
+<body>&nbsp;&nbsp;&nbsp;
+<a href="add" class="button is-primary">Add College</a>
+<a href="http://127.0.0.1:8000/logout" style="float: right;" class="button is-primary">logout</a>
+<center>
+
+    <table border="1">
+        <tr><th>No</th><th><center>name</center></th><th><centre>location</centre></th><th><centre>contact</centre>
+        </th><th><centre>Acronym</centre></th>
+            <th><centre>edit</centre></th>
+            <th><centre>delete</centre></th></tr>
+         {%for i in colleges  %}
+
+    <tr><td width="40">{{i.id}}</td>
+        <td>{{i.name}}</td>
+
+        <td width="150"><center>{{i.location}}</center></td>
+        <td width="200"><a href="{{i.acronym}}">contact@{{i.acronym}}.edu</a></td>
+
+        <td>{{i.acronym}}</td>
+
+        {% if "Can add college" in user_permission %}
+        <td width="50"><a href="edit/{{i.id}}/" >edit</a></td>
+        {% endif %}
+
+
+        {% if "Can delete college" in user_permission %}
+        <td width="50"><a href="edit/{{i.id}}/" >delete</a></td>
+        {% endif %}
+
+    {% endfor %}
+
+    </table></center>
+
+</body>
+</html>
