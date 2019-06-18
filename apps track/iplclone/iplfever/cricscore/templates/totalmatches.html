@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: blue;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: skyblue;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color:skyblue;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+h1{color:blue;
+}
+</style>
+</head>
+<body>
+{% load static %}
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">ipl seasons</a>
+     <div class="dropdown-content">
+
+  <a href="2008\{{some}}">2008&nbsp;&nbsp;<img src="{% static 'rr.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="2009\{{some}}">2009&nbsp;&nbsp;<img src="{% static 'dc.jpg'%}" width="30" height="30" class="avatar"></a>
+  <a href="2010\{{some}}">2010&nbsp;&nbsp;<img src="{% static 'csk.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="2011\{{some}}">2011&nbsp;&nbsp;<img src="{% static 'csk.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="2012\{{some}}">2012&nbsp;&nbsp;<img src="{% static 'kkr.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="2013\{{some}}">2013&nbsp;&nbsp;<img src="{% static 'mi.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="2014\{{some}}">2014&nbsp;&nbsp;<img src="{% static 'kkr.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="2015\{{some}}">2015&nbsp;&nbsp;<img src="{% static 'mi.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="2016\{{some}}">2016&nbsp;&nbsp;<img src="{% static 'srh.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="2017\{{some}}">2017&nbsp;&nbsp;<img src="{% static 'mi.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="2018\{{some}}">2018&nbsp;&nbsp;<img src="{% static 'csk.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="2019\{{some}}">2019&nbsp;&nbsp;<img src="{% static 'mi.png'%}" width="30" height="30" class="avatar"></a>
+  </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Points table</a>
+    <div class="dropdown-content">
+
+  <a href="2008\points">2008 pointstable</a>
+  <a href="2009\points">2009 pointstable </a>
+  <a href="2010\points">2010 pointstable</a>
+  <a href="2011\points">2011 pointstable</a>
+  <a href="2012\points">2012 pointstable</a>
+  <a href="2013\points">2013 pointstable</a>
+  <a href="2014\points">2014 pointstable</a>
+  <a href="2015\points">2015 pointstable</a>
+  <a href="2016\points">2016 pointstable</a>
+  <a href="2017\points">2017 pointstable</a>
+  <a href="2018\points">2018 pointstable</a>
+  <a href="2019\points">2019 pointstable</a>
+  </div>
+  </li>
+    <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">teams</a>
+    <div class="dropdown-content">
+
+  <a href="Mumbai Indians">mumbai indians &nbsp;&nbsp;<img src="{% static 'mi.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="rcb">royal challengers&nbsp;&nbsp;<img src="{% static 'rcb.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="csk">chennai super kings&nbsp;&nbsp;<img src="{% static 'csk.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="DD">Delhi Daredevils&nbsp;&nbsp;<img src="{% static 'dd.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="kkr">kolkata knight riders&nbsp;&nbsp;<img src="{% static 'kkr.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="kx1p">kingsx1 punjab&nbsp;&nbsp;<img src="{% static 'kx1p.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="RR">rajasthan royals&nbsp;&nbsp;<img src="{% static 'rr.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="srh">sunrisers&nbsp;&nbsp;<img src="{% static 'srh.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="dc">deccan chargers&nbsp;&nbsp;<img src="{% static 'dc.jpg'%}" width="30" height="30" class="avatar"></a>
+  <a href="delc">delhi capitals&nbsp;&nbsp;<img src="{% static 'dd.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="Gl">gujrat lions&nbsp;&nbsp;<img src="{% static 'gl.png'%}" width="30" height="30" class="avatar"></a>
+  <a href="pwi">pune warriors&nbsp;&nbsp;<img src="{% static 'pwi.jpg'%}" width="30" height="30" class="avatar"></a>
+  <a href="ktk">kochi tuskers&nbsp;&nbsp;<img src="{% static 'ktk.png'%}" width="30" height="30" class="avatar"></a>
+  </div>
+  </li>
+</ul>
+<br><br><br><br><br>
+
+<center><h1>2019 MATCHES RESULTS </h1></center>
+
+    <table id="customers">
+
+        <tr><th>No</th><th><center>team1</center></th><th><centre>team2</centre></th><th><centre>venue</centre>
+        </th><th><centre>toss result</centre></th>
+            <th><centre>toss decision</centre></th>
+
+            <th><centre>Match Result</centre></th>
+            <th><centre>Playerof the Match</centre></th></tr>
+         {%for i in matches  %}
+
+    <tr><td width="40">{{i.id}}</td>
+        <td>{{i.team1}}</td>
+
+        <td width="150"><center><h6>{{i.team2}}</h6></center></td>
+        <td width="150"><center><h6>{{i.venue}}</h6></center></td>
+        <td width="150"><center><h6>{{i.toss_won}}</h6></center></td>
+        <td width="150"><center><h6>{{i.toss_desicion}}</h6></center></td>
+        <td width="150"><center><h6>{{i.result}}</h6></center></td>
+        <td width="150"><center><h6>{{i.player_of_match}}</h6></center></td>
+
+    {% endfor %}
+
+    </table></center>
+
+
+
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <head><center>{{season}} matches</matches></center></head>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+
+       th{
+       background-color:skyblue;
+       }
+       td
+       {
+       background-color:black;
+       color:white;
+       width:250;
+       height:50;
+       }
+       table,td{1px black}
+    </style>
+
+</head>
+<body>&nbsp;&nbsp;&nbsp;
+<h1 align="right" data-padding-left="100">{{user}}</h1>
+<!--<a href="add" class="button is-primary">Add College</a>-->
+<a href="http://127.0.0.1:8000/logout" style="float: right; " class="button is-primary">logout</a>
+<center>
+<br><br>
+
+    <table id="customer"><thead>
+        <tr><th>No</th><th><center>team1</center></th><th><centre>team2</centre></th><th><centre>venue</centre>
+        </th><th><centre>toss result</centre></th>
+            <th><centre>toss decision</centre></th>
+
+            <th><centre>Match Result</centre></th>
+            <th><centre>Playerof the Match</centre></th>
+            <th><centre>studentdetails</centre></th></tr>
+</thead>
+        <tbody>
+         {%for i in matches  %}
+
+    <tr><td width="40">{{i.id}}</td>
+        <td >{{i.team1}}</td>
+
+        <td ><center>{{i.team2}}</center></td>
+        <td ><center>{{i.venue}}</center></td>
+        <td ><center>{{i.toss_won}}</center></td>
+        <td ><center>{{i.toss_desicion}}</center></td>
+        <td ><center>{{i.result}}</center></td>
+        <td ><center>{{i.player_of_match}}</center></td>
+        <td ><a href="summary/{{i.id}}/" >edit</a></td>
+
+
+    {% endfor %}</tbody>
+    </table></center>
+<br>
+<center>
+&nbsp;&nbsp;&nbsp;<a href='http://127.0.0.1:8000/home/{{season}}/{{some|add:"-8"}}' class="button is-primary">back</a>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://127.0.0.1:8000/home/{{season}}/{{some|add:"8"}}' class="button is-primary">next</a>
+</center>
+<!--{% if some|add:"-8" > 0 %}-->
+<!--{% else %}-->
+<!--<a href='' class="button is-primary">back</a>-->
+<!--{% endif %}-->
+<!--{% if some|add:"8" < 65 %}-->
+<!--{% else %}-->
+<!--<a href='' class="button is-primary">back</a>-->
+<!--{% endif %}-->
+</body>
+</html>

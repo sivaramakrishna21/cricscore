@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: blue;
+  color: white;
+}
+h1{color:blue;
+}
+</style>
+</head>
+<body>
+<center>
+<h1>complete details of a team</h1>
+  <table border="1">
+    <td>year</td>
+    <td>points</td>
+    <td>standing</td>
+{% for p in status %}
+  <tr>
+  <td>{{p.0}}</td>
+  <td>{{p.1}}</td>
+  <td>{{p.2}}</td></tr>
+  {%endfor%}
+ {% for i in all  %}
+  <table id="customers">
+    <tr> <th>team</th>
+      <th>oppostion</th>
+      <th>winner</th></tr>
+
+    {% for j in i %}
+    <tr>
+
+      <th>{{j.team1}}</th>
+      <th>{{j.team2}}</th>
+      <th>{{j.winners}}</th></tr>
+
+    {% endfor %}
+    <br><br><br><br>
+  {{i.0.season}}
+
+  </table>
+  {%endfor%}
+</center>
+</body>
+</html>
+ <tr>
+
+
+

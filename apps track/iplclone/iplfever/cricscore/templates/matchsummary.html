@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+
+    <title>Title</title>
+   <style>
+   h1
+{
+color:blue;
+}
+th{background-color:skyblue;}
+td
+       {
+       background-color:black;
+       color:white;
+       }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
+
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: LightBlue;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: blue;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+h2{
+color:blue;
+}
+</style>
+
+</head>
+<body>
+<h2 align="right" data-padding-right="10px">{{user}}</h2>
+<a href="http://127.0.0.1:8000/logout" style="float: right;" class="button is-primary">logout</a>
+<br><br><center>
+<h3>Teams playing the match:team1-{{matches.team1}}<br>team2-{{matches.team2}}</h3>
+<h3>Toss result-{{matches.toss_won}} and decision-{{matches.toss_desicion}}</h3>
+{%if matches.win_by_runs == 0 %}
+    <h3>won by {{matches.win_by_wickets}} wickets</h3>
+{% endif %}
+{%if matches.win_by_runs > 0 %}
+    <h3>won by {{matches.win_by_runs}} runs</h3>
+{% endif %}
+<h3>Winner-{{matches.winners}} and margin</h3>
+<h3>Man of the Match-{{matches.player_of_match}}</h3></center>
+<center>
+    <h3>TOP 3 RUN GETTERS IN THE MATCH</h3>
+    <table border="1"><tr>
+        <th>batsman</th>
+        <th>runs</th></tr>
+{% for i in top3%}
+        <tr>
+<td width="100">{{i.batsman}}</td><td width="100">{{i.total}}</td></tr>
+{% endfor %}</table>
+    </center>
+<center>
+    <h3>TOP 3 WICKET GETTERS IN THE MATCH</h3>
+    <table border="1"><tr>
+        <th>bowler</th>
+
+        <th>wickets</th></tr>
+{% for i in top3wick%}
+        <tr>
+<td width="100">{{i.bowler}}</td><td width="100">{{i.total}}</td></tr>
+{% endfor %}</table>
+    </center>
+<br><br><br><br><br>
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'innings1')">Inning 1</button>
+  <button class="tablinks" onclick="openCity(event, 'innings2')">Inning 2</button>
+</div>
+
+<div id="innings1" class="tabcontent">
+  <center>
+      <h3>{{delivery.0.batting_team}}</h3>
+    <h1>over by over result</h1>
+
+<table class="table" border="1">
+        <tr><th>over</th><th>ball</th><th>bowler</th><th>fielder</th>
+        <th>dismissal kind</th><th><center>runsscored</center></th><th><centre>wickets taken</centre></th>
+         {%for i in delivery  %}
+    {% if i.inning == 1 %}
+
+    <tr><td width="40">{{i.over}}</td>
+    <td width="40">{{i.ball}}</td>
+    <td>{{i.bowler}}</td>
+    <td>{{i.fielder}}</td>
+    <td>{{i.dismissal_kind}}</td>
+        <td width="150"><center>{{i.total_runs}}</center></td>
+        <td width="150"><center>{{i.player_dismissed}}</center></td>
+{%endif%}
+    {% endfor %}
+
+    </table></center>
+</div>
+
+<div id="innings2" class="tabcontent">
+  <center>
+            <h3>{{delivery.0.batting_team}}</h3>
+    <h1>over by over result</h1>
+<table border="1">
+        <tr><th>over</th><th>ball</th><th><center>runsscored</center></th><th><centre>wickets taken</centre></th>
+         {%for i in delivery  %}
+    {% if i.inning == 2 %}
+
+    <tr><td width="40">{{i.over}}</td>
+    <td width="40">{{i.ball}}</td>
+
+        <td width="150"><center>{{i.total_runs}}</center></td>
+        <td width="150"><center>{{i.player_dismissed}}</center></td>
+{%endif%}
+    {% endfor %}
+
+    </table></center>
+
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+<br><br><br><br><br>
+</body>
+</html>
